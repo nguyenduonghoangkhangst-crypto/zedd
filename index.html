@@ -5,15 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Watermark</title>
     <link rel="manifest" href="manifest.json">
-    <script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./service-worker.js")
-        .then(reg => console.log("✅ Service Worker registered:", reg))
-        .catch(err => console.error("❌ SW registration failed:", err));
-    });
-  }
-</script>
     <link rel="icon" href="assets/icon.png">
     <meta name="theme-color" content="#667eea">
     <style>
@@ -228,9 +219,6 @@
     <script>
         const loadFonts = async () => {
     try {
-        // Cú pháp FontFace: new FontFace(tên_font, url, [options])
-        // Đặt định dạng (format) vào phần mô tả của URL trong chuỗi.
-
         const fontFace1 = new FontFace(
             'BigShouldersText', 
             "url(./font/BigShouldersText-Medium.ttf) format('truetype')"
@@ -247,12 +235,6 @@
             'RobotoMedium', 
             "url(./font/Roboto-Medium.ttf) format('truetype')"
         );
-        
-        // Hoặc bạn có thể thêm các thuộc tính khác như font-weight trong đối số thứ 3 (options)
-        // const fontFace4 = new FontFace(
-        //     'RobotoMedium', 
-        //     "url(./font/Roboto-Medium.ttf) format('truetype')", 
-        //     { weight: '500' }
       );
            await Promise.all([
             fontFace1.load(),
@@ -758,6 +740,7 @@
 </body>
 
 </html>
+
 
 
 
