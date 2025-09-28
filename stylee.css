@@ -1,0 +1,34 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Trang web của tôi</title>
+
+  <style>
+    @font-face {
+      font-family: 'Roboto';
+      src: url('./fonts/Roboto-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'RobotoMedium';
+      src: url('./fonts/Roboto-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'BigShouldersText';
+      src: url('./fonts/BigShouldersText-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'RobotoCondensed';
+      src: url('./fonts/RobotoCondensed-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+</head>
