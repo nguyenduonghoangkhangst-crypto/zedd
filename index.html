@@ -22,7 +22,8 @@
             margin: 0;
             padding: 0;
         }
-        
+        body { font-family: 'Roboto', sans-serif;
+             }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -170,25 +171,31 @@
             color: #667eea;
             display: none;
         }
-        @font-face {
-  font-family: 'Roboto';
-  src: url('./font/Roboto-Regular.ttf') format('truetype');
-}
+        const loadFonts = async () => {
+    try {
+        const fontFace1 = new FontFace('BigShouldersText', 'url(./font/BigShouldersText-Medium.ttf)');
+        const fontFace2 = new FontFace('RobotoCondensed', 'url(./font/RobotoCondensed-Regular.ttf)');
+        const fontFace3 = new FontFace('Roboto', 'url(./font/Roboto-Regular.ttf)');
+        const fontFace4 = new FontFace('RobotoMedium', 'url(./font/Roboto-Medium.ttf)');
 
-@font-face {
-  font-family: 'RobotoMedium';
-  src: url('./font/Roboto-Medium.ttf') format('truetype');
-}
+        await Promise.all([
+            fontFace1.load(),
+            fontFace2.load(),
+            fontFace3.load(),
+            fontFace4.load()
+        ]);
 
-@font-face {
-  font-family: 'BigShouldersText';
-  src: url('./font/BigShouldersText-Medium.ttf') format('truetype');
-}
+        document.fonts.add(fontFace1);
+        document.fonts.add(fontFace2);
+        document.fonts.add(fontFace3);
+        document.fonts.add(fontFace4);
 
-@font-face {
-  font-family: 'RobotoCondensed';
-  src: url('./font/RobotoCondensed-Regular.ttf') format('truetype');
-}
+        console.log('✅ Fonts loaded thành công');
+    } catch (e) {
+        console.error('❌ Lỗi tải font:', e);
+        alert('Không thể tải font. Vui lòng kiểm tra file font trong thư mục font.');
+    }
+};
     </style>
 </head>
 <body>
@@ -731,6 +738,7 @@
 </body>
 
 </html>
+
 
 
 
