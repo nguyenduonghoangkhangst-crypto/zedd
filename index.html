@@ -173,22 +173,50 @@
         }
         const loadFonts = async () => {
     try {
-        const fontFace1 = new FontFace('BigShouldersText', 'url(./font/BigShouldersText-Medium.ttf)');  format('truetype')
-        const fontFace2 = new FontFace('RobotoCondensed', 'url(./font/RobotoCondensed-Regular.ttf)'); format('truetype')
-        const fontFace3 = new FontFace('Roboto', 'url(./font/Roboto-Regular.ttf)'); format('truetype')
-        const fontFace4 = new FontFace('RobotoMedium', 'url(./font/Roboto-Medium.ttf)'); format('truetype')
+        // Cú pháp FontFace: new FontFace(tên_font, url, [options])
+        // Đặt định dạng (format) vào phần mô tả của URL trong chuỗi.
 
-        await Promise.all([
+        const fontFace1 = new FontFace(
+            'BigShouldersText', 
+            "url(./font/BigShouldersText-Medium.ttf) format('truetype')"
+        );
+        const fontFace2 = new FontFace(
+            'RobotoCondensed', 
+            "url(./font/RobotoCondensed-Regular.ttf) format('truetype')"
+        );
+        const fontFace3 = new FontFace(
+            'Roboto', 
+            "url(./font/Roboto-Regular.ttf) format('truetype')"
+        );
+        const fontFace4 = new FontFace(
+            'RobotoMedium', 
+            "url(./font/Roboto-Medium.ttf) format('truetype')"
+        );
+        
+        // Hoặc bạn có thể thêm các thuộc tính khác như font-weight trong đối số thứ 3 (options)
+        // const fontFace4 = new FontFace(
+        //     'RobotoMedium', 
+        //     "url(./font/Roboto-Medium.ttf) format('truetype')", 
+        //     { weight: '500' }
+      );
+           await Promise.all([
             fontFace1.load(),
             fontFace2.load(),
             fontFace3.load(),
             fontFace4.load()
         ]);
-
         document.fonts.add(fontFace1);
         document.fonts.add(fontFace2);
         document.fonts.add(fontFace3);
         document.fonts.add(fontFace4);
+
+        console.log('✅ Fonts loaded thành công');
+    } catch (e) {
+        console.error('❌ Lỗi tải font:', e);
+        
+    }
+};
+window.onload = loadFonts;
 
         console.log('✅ Fonts loaded thành công');
     } catch (e) {
@@ -740,6 +768,7 @@
 </body>
 
 </html>
+
 
 
 
